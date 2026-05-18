@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini-site – Vocabulaire du management en anglais</title>
+  <style>
+    :root{
+      --blue:#1f4f8f;
+      --blue2:#2f80ed;
+      --green:#12a879;
+      --navy:#0f172a;
+      --purple:#6d5dfc;
+      --gold:#ffd36e;
+      --bg:#f4f7fb;
+      --card:#ffffff;
+      --text:#1f2937;
+      --muted:#667085;
+      --line:#d9e3f0;
+      --ok:#157347;
+      --bad:#b42318;
+      --shadow:0 16px 35px rgba(31,79,143,.14);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(47,128,237,.18), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(109,93,252,.12), transparent 34rem),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 46%, #eef4fb 100%);
+      line-height:1.55;
+    }
+
+    header{
+      background:linear-gradient(125deg, var(--navy), var(--blue) 55%, var(--purple));
+      color:white;
+      padding:34px 18px 46px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    header::after{
+      content:"MANAGEMENT";
+      position:absolute;
+      right:-3vw;
+      top:44px;
+      font-size:7.4rem;
+      line-height:1;
+      opacity:.075;
+      transform:rotate(-8deg);
+      font-weight:900;
+      letter-spacing:.08em;
+    }
+
+    .wrap{
+      width:min(1180px, calc(100% - 28px));
+      margin:auto;
+      position:relative;
+      z-index:1;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:26px;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      background:white;
+      color:var(--blue);
+      display:grid;
+      place-items:center;
+      font-weight:900;
+      box-shadow:0 10px 20px rgba(0,0,0,.14);
+    }
+
+    .brand strong{font-size:1.05rem}
+    .brand span{opacity:.9;font-size:.95rem}
+
+    h1{
+      font-size:clamp(2rem, 5vw, 4rem);
+      line-height:1.04;
+      margin:0 0 14px;
+      max-width:980px;
+    }
+
+    .subtitle{
+      font-size:1.16rem;
+      max-width:930px;
+      opacity:.96;
+      margin:0 0 25px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:22px;
+    }
+
+    .btn, button{
+      border:0;
+      border-radius:999px;
+      padding:12px 18px;
+      font-weight:800;
+      cursor:pointer;
+      transition:.2s transform, .2s box-shadow, .2s background;
+      font-size:.95rem;
+      font-family:inherit;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      text-decoration:none;
+    }
+
+    .btn-primary{
+      background:white;
+      color:var(--blue);
+      box-shadow:0 10px 20px rgba(0,0,0,.13);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.18);
+      color:white;
+      border:1px solid rgba(255,255,255,.34);
+    }
+
+    .btn:hover, button:hover{
+      transform:translateY(-1px);
+      box-shadow:0 8px 18px rgba(31,79,143,.18);
+    }
+
+    main{padding:28px 0 54px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    aside{
+      position:sticky;
+      top:14px;
+      background:rgba(255,255,255,.92);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    aside h2{
+      font-size:1.05rem;
+      margin:0 0 12px;
+      color:var(--blue);
+    }
+
+    .toc{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-bottom:18px;
+      max-height:54vh;
+      overflow:auto;
+      padding-right:4px;
+    }
+
+    .toc a{
+      text-decoration:none;
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:14px;
+      background:#f8fbff;
+      border:1px solid transparent;
+      font-weight:700;
+      font-size:.92rem;
+    }
+
+    .toc a:hover{
+      border-color:#bcd3f5;
+      color:var(--blue);
+    }
+
+    .toolbox{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .toolbox input, select, textarea{
+      width:100%;
+      border:1px solid var(--line);
+      padding:12px 14px;
+      border-radius:14px;
+      font-size:.95rem;
+      outline:none;
+      font-family:inherit;
+      background:white;
+    }
+
+    textarea{min-height:88px; resize:vertical}
+
+    .toolbox input:focus, select:focus, textarea:focus{
+      border-color:var(--blue2);
+      box-shadow:0 0 0 4px rgba(47,128,237,.12);
+    }
+
+    .content{
+      display:flex;
+      flex-direction:column;
+      gap:22px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.96);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .intro, .panel{padding:26px}
+
+    .intro h2, section h2{
+      margin:0 0 10px;
+      color:var(--blue);
+      font-size:1.55rem;
+    }
+
+    .intro p{margin:0 0 12px}
+
+    .badges{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .badge{
+      background:#edf5ff;
+      color:var(--blue);
+      padding:8px 12px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.88rem;
+    }
+
+    .section-head{
+      padding:22px 24px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:16px;
+      background:linear-gradient(180deg, #ffffff, #f9fcff);
+    }
+
+    .section-head p{
+      margin:4px 0 0;
+      color:var(--muted);
+    }
+
+    .count{
+      white-space:nowrap;
+      background:var(--gold);
+      color:#493100;
+      border-radius:999px;
+      padding:7px 11px;
+      font-weight:900;
+      font-size:.9rem;
+    }
+
+    .vocab-table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    .vocab-table th{
+      background:#f0f6ff;
+      color:var(--blue);
+      text-align:left;
+      padding:13px 16px;
+      font-size:.92rem;
+      border-bottom:1px solid var(--line);
+    }
+
+    .vocab-table td{
+      padding:13px 16px;
+      border-bottom:1px solid #edf2f7;
+      vertical-align:middle;
+    }
+
+    .vocab-table tr:last-child td{border-bottom:0}
+
+    .en{
+      font-weight:900;
+      color:#111827;
+    }
+
+    .fr{color:#374151}
+
+    .audio-cell{
+      display:flex;
+      gap:7px;
+      flex-wrap:wrap;
+    }
+
+    .sound{
+      padding:8px 10px;
+      border-radius:12px;
+      background:#edf5ff;
+      color:var(--blue);
+      border:1px solid #cfe0f7;
+      font-weight:900;
+    }
+
+    .sound.frbtn{
+      background:#ecfdf5;
+      color:#08765a;
+      border-color:#b7ead7;
+    }
+
+    .dialogue-controls, .quiz-controls{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    .dialogue-list{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:16px;
+    }
+
+    .line{
+      display:grid;
+      grid-template-columns:130px 1fr auto;
+      gap:12px;
+      align-items:start;
+      background:#f8fbff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+    }
+
+    .speaker{
+      font-weight:900;
+      color:var(--blue);
+    }
+
+    .line-text strong{
+      display:block;
+      margin-bottom:5px;
+    }
+
+    .line-text span{
+      display:block;
+      color:var(--muted);
+    }
+
+    .scenario-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .scenario{
+      background:#f8fbff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height:200px;
+    }
+
+    .scenario h3{
+      margin:0;
+      color:var(--blue);
+      font-size:1.05rem;
+    }
+
+    .scenario p{margin:0;color:var(--muted)}
+
+    .builder{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:16px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .field.full{grid-column:1 / -1}
+
+    .field label{
+      font-weight:900;
+      color:var(--blue);
+    }
+
+    .output{
+      background:#0f172a;
+      color:white;
+      border-radius:18px;
+      padding:18px;
+      white-space:pre-wrap;
+      min-height:190px;
+      overflow:auto;
+      border:1px solid rgba(255,255,255,.1);
+      margin-top:16px;
+    }
+
+    .copy-note{
+      color:var(--muted);
+      font-weight:800;
+      margin-top:8px;
+      min-height:24px;
+    }
+
+    .quiz-box{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin-top:16px;
+    }
+
+    .question{
+      background:#f8fbff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      min-height:170px;
+    }
+
+    .question h3{margin:0 0 10px;color:var(--blue)}
+
+    .answer-list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .answer{
+      text-align:left;
+      background:white;
+      color:var(--text);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px 14px;
+      font-weight:800;
+    }
+
+    .answer.correct{
+      background:#e8f7ef;
+      border-color:#a6dfbf;
+      color:var(--ok);
+    }
+
+    .answer.wrong{
+      background:#fff1f0;
+      border-color:#ffc7c1;
+      color:var(--bad);
+    }
+
+    .blue-button{
+      background:var(--blue);
+      color:white;
+    }
+
+    .green-button{
+      background:var(--green);
+      color:white;
+    }
+
+    .purple-button{
+      background:var(--purple);
+      color:white;
+    }
+
+    .light-button{
+      background:#eef4fb;
+      color:var(--blue);
+      border:1px solid #d4e4f7;
+    }
+
+    .result{
+      margin-top:14px;
+      font-weight:900;
+      color:var(--blue);
+      min-height:24px;
+    }
+
+    .flashcards{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+
+    .flashcard{
+      min-height:145px;
+      perspective:1000px;
+      cursor:pointer;
+    }
+
+    .flash-inner{
+      width:100%;
+      height:100%;
+      min-height:145px;
+      position:relative;
+      transform-style:preserve-3d;
+      transition: transform .5s;
+    }
+
+    .flashcard.flipped .flash-inner{
+      transform:rotateY(180deg);
+    }
+
+    .flash-front, .flash-back{
+      position:absolute;
+      inset:0;
+      backface-visibility:hidden;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#f8fbff;
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:10px;
+    }
+
+    .flash-front strong, .flash-back strong{
+      font-size:1.02rem;
+    }
+
+    .flash-back{
+      transform:rotateY(180deg);
+      background:#ecfdf5;
+    }
+
+    .hidden{display:none !important}
+
+    footer{
+      text-align:center;
+      color:var(--muted);
+      padding:30px 10px;
+      border-top:1px solid var(--line);
+      background:white;
+    }
+
+    @media (max-width:970px){
+      .grid{grid-template-columns:1fr}
+      aside{position:relative; top:0}
+      .quiz-box, .builder{grid-template-columns:1fr}
+      .scenario-grid{grid-template-columns:1fr}
+      .flashcards{grid-template-columns:1fr 1fr}
+      .line{grid-template-columns:1fr}
+    }
+
+    @media (max-width:640px){
+      .vocab-table, .vocab-table tbody, .vocab-table tr, .vocab-table td, .vocab-table th{
+        display:block;
+      }
+
+      .vocab-table thead{display:none}
+
+      .vocab-table tr{
+        border-bottom:1px solid var(--line);
+        padding:10px 0;
+      }
+
+      .vocab-table td{
+        border-bottom:0;
+        padding:7px 16px;
+      }
+
+      .vocab-table td::before{
+        content:attr(data-label);
+        display:block;
+        font-size:.76rem;
+        text-transform:uppercase;
+        letter-spacing:.06em;
+        color:var(--muted);
+        font-weight:900;
+        margin-bottom:3px;
+      }
+
+      .flashcards{grid-template-columns:1fr}
+    }
+
+    @media print{
+      header, aside, #quiz, #flashcards, footer, .quiz-controls, .dialogue-controls, .sound{display:none}
+      body{background:white}
+      .grid{display:block}
+      .card{box-shadow:none;border:1px solid #ddd;break-inside:avoid}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">
+                  <strong>MY-CUP-OF-T</strong><br>
+          <span>Mini-site pédagogique – Anglais professionnel</span>
+        </div>
+      </div>
+
+      <h1>Le vocabulaire du management en anglais</h1>
+      <p class="subtitle">
+        Un mini-site pour travailler les mots et expressions utiles en gestion d’entreprise :
+        organisation, postes, finances, recrutement, changement, leadership et communication managériale.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#company">Commencer la fiche</a>
+        <a class="btn btn-secondary" href="#dialogues">Écouter les dialogues</a>
+        <a class="btn btn-secondary" href="#builder">Créer une phrase</a>
+        <a class="btn btn-secondary" href="#quiz">Faire le quiz</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap grid">
+    <aside aria-label="Navigation du mini-site">
+      <h2>Table des matières</h2>
+      <nav class="toc">
+        <a href="#company">1. Monde de l’entreprise</a>
+        <a href="#positions">2. Postes</a>
+        <a href="#finance">3. Finances</a>
+        <a href="#change">4. Changement</a>
+        <a href="#hr">5. RH / recrutement</a>
+        <a href="#daily">6. Gestion quotidienne</a>
+        <a href="#verbs">7. Verbes d’action</a>
+        <a href="#leadership">8. Leadership</a>
+        <a href="#expressions">9. Expressions</a>
+        <a href="#dialogues">10. Dialogues</a>
+        <a href="#scenarios">11. Mises en situation</a>
+        <a href="#builder">12. Générateur</a>
+        <a href="#quiz">13. Quiz</a>
+        <a href="#flashcards">14. Cartes mémo</a>
+      </nav>
+
+      <div class="toolbox">
+        <label for="search"><strong>Rechercher un mot</strong></label>
+        <input id="search" type="search" placeholder="Ex. workload, CEO, déléguer..." />
+        <button class="light-button" onclick="resetSearch()">Tout afficher</button>
+        <button class="light-button" onclick="window.print()">Imprimer la fiche</button>
+      </div>
+    </aside>
+
+    <div class="content">
+      <article class="card intro">
+        <h2>Objectif pédagogique</h2>
+        <p>
+          Cette ressource aide les stagiaires à comprendre et utiliser un vocabulaire de management
+          en anglais, dans des situations concrètes : diriger une équipe, suivre l’activité,
+          parler de finances, recruter, restructurer ou donner un feedback.
+        </p>
+        <p>
+          Cliquez sur <strong>EN</strong> pour écouter la prononciation anglaise, ou sur
+          <strong>FR</strong> pour entendre la traduction française.
+        </p>
+        <div class="badges">
+          <span class="badge">Niveau A2-B1</span>
+          <span class="badge">Management English</span>
+          <span class="badge">Audio intégré</span>
+          <span class="badge">Quiz + dialogues</span>
+        </div>
+      </article>
+
+      <section class="card" id="company"></section>
+      <section class="card" id="positions"></section>
+      <section class="card" id="finance"></section>
+      <section class="card" id="change"></section>
+      <section class="card" id="hr"></section>
+      <section class="card" id="daily"></section>
+      <section class="card" id="verbs"></section>
+      <section class="card" id="leadership"></section>
+      <section class="card" id="expressions"></section>
+
+      <section class="card panel" id="dialogues">
+        <h2>10. Dialogues de management à écouter</h2>
+        <p>Choisissez une situation : réunion d’équipe, feedback ou conduite du changement.</p>
+        <div class="dialogue-controls">
+          <button class="blue-button" data-dialogue="team">Réunion d’équipe</button>
+          <button class="green-button" data-dialogue="feedback">Feedback</button>
+          <button class="purple-button" data-dialogue="change">Changement</button>
+          <button class="light-button" onclick="stopAudio()">Stop audio</button>
+        </div>
+        <div class="dialogue-controls">
+          <button class="sound" id="play-dialogue-en">🔊 Écouter le dialogue EN</button>
+          <button class="sound frbtn" id="play-dialogue-fr">🔊 Écouter la traduction FR</button>
+        </div>
+        <div class="result" id="dialogue-title"></div>
+        <div class="dialogue-list" id="dialogue-list"></div>
+      </section>
+
+      <section class="card panel" id="scenarios">
+        <h2>11. Mises en situation</h2>
+        <p>Trois activités orales pour travailler le vocabulaire managérial.</p>
+        <div class="scenario-grid" id="scenario-list"></div>
+      </section>
+
+      <section class="card panel" id="builder">
+        <h2>12. Générateur de phrase managériale</h2>
+        <p>Choisissez une intention, ajoutez votre sujet, puis générez une phrase professionnelle en anglais.</p>
+        <div class="builder">
+          <div class="field">
+            <label for="bIntent">Intention</label>
+            <select id="bIntent">
+              <option value="delegate">Déléguer</option>
+              <option value="feedback">Donner un feedback</option>
+              <option value="priority">Fixer une priorité</option>
+              <option value="progress">Faire le point</option>
+              <option value="change">Expliquer un changement</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="bTopic">Sujet</label>
+            <input id="bTopic" value="the customer follow-up" />
+          </div>
+          <div class="field full">
+            <label for="bExtra">Complément facultatif</label>
+            <textarea id="bExtra">before Friday</textarea>
+          </div>
+        </div>
+        <div class="quiz-controls">
+          <button class="blue-button" onclick="buildSentence()">Générer la phrase</button>
+          <button class="sound" onclick="speakBuiltSentence()">🔊 Écouter EN</button>
+          <button class="green-button" onclick="copyBuiltSentence()">Copier la phrase</button>
+        </div>
+        <div class="output" id="built-sentence"></div>
+        <div class="copy-note" id="copy-note"></div>
+      </section>
+
+      <section class="card panel" id="quiz">
+        <h2>13. Quiz rapide</h2>
+        <p>Lisez le mot ou la phrase en anglais, puis choisissez la bonne traduction française.</p>
+        <div class="quiz-box">
+          <div class="question">
+            <h3>Question</h3>
+            <p id="quiz-question">Cliquez sur “Nouvelle question”.</p>
+            <div class="quiz-controls">
+              <button class="sound" id="listen-question" type="button">🔊 Écouter EN</button>
+            </div>
+          </div>
+          <div class="question">
+            <h3>Réponses</h3>
+            <div class="answer-list" id="answers"></div>
+          </div>
+        </div>
+        <div class="quiz-controls">
+          <button class="blue-button" onclick="newQuestion()">Nouvelle question</button>
+          <button class="green-button" onclick="resetQuiz()">Recommencer le score</button>
+        </div>
+        <div class="result" id="quiz-result"></div>
+      </section>
+
+      <section class="card panel" id="flashcards">
+        <h2>14. Cartes mémo</h2>
+        <p>Cliquez sur une carte pour retourner la traduction.</p>
+        <div class="flashcards" id="flash-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    Mini-site pédagogique original – Avenir Pro Formations – Vocabulaire du management en anglais.
+  </footer>
+
+  <script>
+    const categories = {
+      "company": {
+            "title": "1. Le monde de l’entreprise",
+            "description": "Les mots de base pour parler d’une entreprise, de sa taille et de son organisation.",
+            "items": [
+                  {
+                        "en": "company",
+                        "fr": "entreprise"
+                  },
+                  {
+                        "en": "business",
+                        "fr": "entreprise / activité commerciale"
+                  },
+                  {
+                        "en": "enterprise",
+                        "fr": "entreprise"
+                  },
+                  {
+                        "en": "firm",
+                        "fr": "société / cabinet"
+                  },
+                  {
+                        "en": "corporation",
+                        "fr": "grande société"
+                  },
+                  {
+                        "en": "cooperative",
+                        "fr": "coopérative"
+                  },
+                  {
+                        "en": "franchise",
+                        "fr": "franchise"
+                  },
+                  {
+                        "en": "startup",
+                        "fr": "start-up"
+                  },
+                  {
+                        "en": "small and medium-sized enterprise",
+                        "fr": "petite et moyenne entreprise"
+                  },
+                  {
+                        "en": "subsidiary",
+                        "fr": "filiale"
+                  },
+                  {
+                        "en": "head office",
+                        "fr": "siège social"
+                  },
+                  {
+                        "en": "branch",
+                        "fr": "agence / succursale"
+                  },
+                  {
+                        "en": "department",
+                        "fr": "service / département"
+                  },
+                  {
+                        "en": "shareholder",
+                        "fr": "actionnaire"
+                  },
+                  {
+                        "en": "stakeholder",
+                        "fr": "partie prenante"
+                  },
+                  {
+                        "en": "organizational chart",
+                        "fr": "organigramme"
+                  }
+            ]
+      },
+      "positions": {
+            "title": "2. Postes et responsabilités",
+            "description": "Les fonctions clés dans une organisation.",
+            "items": [
+                  {
+                        "en": "CEO: chief executive officer",
+                        "fr": "PDG / directeur général"
+                  },
+                  {
+                        "en": "CFO: chief financial officer",
+                        "fr": "directeur financier"
+                  },
+                  {
+                        "en": "CTO: chief technology officer",
+                        "fr": "directeur technique"
+                  },
+                  {
+                        "en": "HR manager",
+                        "fr": "responsable des ressources humaines"
+                  },
+                  {
+                        "en": "operations manager",
+                        "fr": "responsable des opérations"
+                  },
+                  {
+                        "en": "project manager",
+                        "fr": "chef de projet"
+                  },
+                  {
+                        "en": "team leader",
+                        "fr": "chef d’équipe"
+                  },
+                  {
+                        "en": "line manager",
+                        "fr": "responsable hiérarchique"
+                  },
+                  {
+                        "en": "board members",
+                        "fr": "membres du conseil d’administration"
+                  },
+                  {
+                        "en": "chairperson",
+                        "fr": "président / présidente"
+                  },
+                  {
+                        "en": "employee",
+                        "fr": "salarié"
+                  },
+                  {
+                        "en": "staff",
+                        "fr": "personnel"
+                  },
+                  {
+                        "en": "assistant",
+                        "fr": "assistant / assistante"
+                  },
+                  {
+                        "en": "trainee",
+                        "fr": "stagiaire"
+                  },
+                  {
+                        "en": "consultant",
+                        "fr": "consultant"
+                  },
+                  {
+                        "en": "manager",
+                        "fr": "responsable / manager"
+                  }
+            ]
+      },
+      "finance": {
+            "title": "3. Finances et performance",
+            "description": "Le vocabulaire utile pour parler de budget, dettes, dépenses et indicateurs.",
+            "items": [
+                  {
+                        "en": "accounting",
+                        "fr": "comptabilité"
+                  },
+                  {
+                        "en": "budget",
+                        "fr": "budget"
+                  },
+                  {
+                        "en": "debt",
+                        "fr": "dette"
+                  },
+                  {
+                        "en": "loan",
+                        "fr": "prêt"
+                  },
+                  {
+                        "en": "funding",
+                        "fr": "financement"
+                  },
+                  {
+                        "en": "investment",
+                        "fr": "investissement"
+                  },
+                  {
+                        "en": "expenses",
+                        "fr": "dépenses"
+                  },
+                  {
+                        "en": "expenditures",
+                        "fr": "dépenses"
+                  },
+                  {
+                        "en": "financial analysis",
+                        "fr": "analyse financière"
+                  },
+                  {
+                        "en": "cash flow",
+                        "fr": "trésorerie / flux de trésorerie"
+                  },
+                  {
+                        "en": "profit",
+                        "fr": "bénéfice"
+                  },
+                  {
+                        "en": "loss",
+                        "fr": "perte"
+                  },
+                  {
+                        "en": "turnover",
+                        "fr": "chiffre d’affaires"
+                  },
+                  {
+                        "en": "cost control",
+                        "fr": "contrôle des coûts"
+                  },
+                  {
+                        "en": "KPI: key performance indicator",
+                        "fr": "indicateur clé de performance"
+                  },
+                  {
+                        "en": "return on investment",
+                        "fr": "retour sur investissement"
+                  }
+            ]
+      },
+      "change": {
+            "title": "4. Changement et difficultés d’entreprise",
+            "description": "Les termes pour parler de transformation, crise, fusion ou restructuration.",
+            "items": [
+                  {
+                        "en": "merger",
+                        "fr": "fusion"
+                  },
+                  {
+                        "en": "acquisition",
+                        "fr": "acquisition"
+                  },
+                  {
+                        "en": "takeover bid",
+                        "fr": "offre publique d’achat"
+                  },
+                  {
+                        "en": "restructuring",
+                        "fr": "restructuration"
+                  },
+                  {
+                        "en": "reorganization plan",
+                        "fr": "plan de redressement"
+                  },
+                  {
+                        "en": "bankruptcy",
+                        "fr": "faillite"
+                  },
+                  {
+                        "en": "winding up",
+                        "fr": "liquidation"
+                  },
+                  {
+                        "en": "recession",
+                        "fr": "récession"
+                  },
+                  {
+                        "en": "crisis management",
+                        "fr": "gestion de crise"
+                  },
+                  {
+                        "en": "change management",
+                        "fr": "conduite du changement"
+                  },
+                  {
+                        "en": "risk management",
+                        "fr": "gestion des risques"
+                  },
+                  {
+                        "en": "business continuity",
+                        "fr": "continuité d’activité"
+                  },
+                  {
+                        "en": "downsizing",
+                        "fr": "réduction des effectifs"
+                  },
+                  {
+                        "en": "turnaround strategy",
+                        "fr": "stratégie de redressement"
+                  }
+            ]
+      },
+      "hr": {
+            "title": "5. Recrutement et ressources humaines",
+            "description": "Les mots utiles pour parler d’embauche, contrat, carrière et équipe.",
+            "items": [
+                  {
+                        "en": "recruitment",
+                        "fr": "recrutement"
+                  },
+                  {
+                        "en": "job interview",
+                        "fr": "entretien d’embauche"
+                  },
+                  {
+                        "en": "vacancy",
+                        "fr": "poste à pourvoir"
+                  },
+                  {
+                        "en": "job offer",
+                        "fr": "offre d’emploi"
+                  },
+                  {
+                        "en": "employment contract",
+                        "fr": "contrat de travail"
+                  },
+                  {
+                        "en": "career",
+                        "fr": "carrière"
+                  },
+                  {
+                        "en": "workforce",
+                        "fr": "main-d’œuvre / effectif"
+                  },
+                  {
+                        "en": "unemployment",
+                        "fr": "chômage"
+                  },
+                  {
+                        "en": "onboarding",
+                        "fr": "intégration d’un nouveau salarié"
+                  },
+                  {
+                        "en": "training plan",
+                        "fr": "plan de formation"
+                  },
+                  {
+                        "en": "performance review",
+                        "fr": "entretien d’évaluation"
+                  },
+                  {
+                        "en": "promotion",
+                        "fr": "promotion"
+                  },
+                  {
+                        "en": "salary increase",
+                        "fr": "augmentation de salaire"
+                  },
+                  {
+                        "en": "redundancy",
+                        "fr": "licenciement économique"
+                  },
+                  {
+                        "en": "business hours",
+                        "fr": "heures de bureau"
+                  }
+            ]
+      },
+      "daily": {
+            "title": "6. Gestion quotidienne",
+            "description": "Le vocabulaire pour organiser le travail et suivre l’activité d’une équipe.",
+            "items": [
+                  {
+                        "en": "workload",
+                        "fr": "charge de travail"
+                  },
+                  {
+                        "en": "backlog",
+                        "fr": "retard / travail en attente"
+                  },
+                  {
+                        "en": "deadline",
+                        "fr": "échéance"
+                  },
+                  {
+                        "en": "task",
+                        "fr": "tâche"
+                  },
+                  {
+                        "en": "priority",
+                        "fr": "priorité"
+                  },
+                  {
+                        "en": "workflow",
+                        "fr": "flux de travail"
+                  },
+                  {
+                        "en": "schedule",
+                        "fr": "planning"
+                  },
+                  {
+                        "en": "time management",
+                        "fr": "gestion du temps"
+                  },
+                  {
+                        "en": "delegation",
+                        "fr": "délégation"
+                  },
+                  {
+                        "en": "follow-up",
+                        "fr": "suivi / relance"
+                  },
+                  {
+                        "en": "meeting minutes",
+                        "fr": "compte-rendu de réunion"
+                  },
+                  {
+                        "en": "action plan",
+                        "fr": "plan d’action"
+                  },
+                  {
+                        "en": "reporting",
+                        "fr": "reporting / compte rendu"
+                  },
+                  {
+                        "en": "insurance",
+                        "fr": "assurance"
+                  },
+                  {
+                        "en": "time sharing",
+                        "fr": "partage du temps"
+                  }
+            ]
+      },
+      "verbs": {
+            "title": "7. Verbes d’action en entreprise",
+            "description": "Les verbes indispensables pour décrire les décisions et actions de gestion.",
+            "items": [
+                  {
+                        "en": "to run a company",
+                        "fr": "diriger une entreprise"
+                  },
+                  {
+                        "en": "to manage a firm",
+                        "fr": "gérer une société"
+                  },
+                  {
+                        "en": "to hire",
+                        "fr": "embaucher"
+                  },
+                  {
+                        "en": "to make someone redundant",
+                        "fr": "licencier pour raisons économiques"
+                  },
+                  {
+                        "en": "to file for bankruptcy",
+                        "fr": "déposer le bilan"
+                  },
+                  {
+                        "en": "to go bankrupt",
+                        "fr": "faire faillite"
+                  },
+                  {
+                        "en": "to pay off a debt",
+                        "fr": "rembourser une dette"
+                  },
+                  {
+                        "en": "to pay off a loan",
+                        "fr": "rembourser un prêt"
+                  },
+                  {
+                        "en": "to merge",
+                        "fr": "fusionner"
+                  },
+                  {
+                        "en": "to take over a company",
+                        "fr": "prendre le contrôle d’une société"
+                  },
+                  {
+                        "en": "to restructure",
+                        "fr": "restructurer"
+                  },
+                  {
+                        "en": "to upgrade",
+                        "fr": "moderniser"
+                  },
+                  {
+                        "en": "to dissolve a company",
+                        "fr": "dissoudre une société"
+                  },
+                  {
+                        "en": "to set goals",
+                        "fr": "fixer des objectifs"
+                  },
+                  {
+                        "en": "to delegate tasks",
+                        "fr": "déléguer des tâches"
+                  },
+                  {
+                        "en": "to monitor performance",
+                        "fr": "suivre la performance"
+                  }
+            ]
+      },
+      "leadership": {
+            "title": "8. Leadership et communication managériale",
+            "description": "Des phrases pour encadrer, motiver, déléguer et donner du feedback.",
+            "items": [
+                  {
+                        "en": "Let’s define clear objectives.",
+                        "fr": "Définissons des objectifs clairs."
+                  },
+                  {
+                        "en": "I trust you with this task.",
+                        "fr": "Je vous fais confiance pour cette tâche."
+                  },
+                  {
+                        "en": "Could you take the lead on this project?",
+                        "fr": "Pourriez-vous prendre la responsabilité de ce projet ?"
+                  },
+                  {
+                        "en": "We need to prioritize our actions.",
+                        "fr": "Nous devons prioriser nos actions."
+                  },
+                  {
+                        "en": "Let’s review the progress together.",
+                        "fr": "Faisons le point ensemble sur l’avancement."
+                  },
+                  {
+                        "en": "Your feedback is important.",
+                        "fr": "Votre retour est important."
+                  },
+                  {
+                        "en": "I appreciate your initiative.",
+                        "fr": "J’apprécie votre initiative."
+                  },
+                  {
+                        "en": "We need to improve our communication.",
+                        "fr": "Nous devons améliorer notre communication."
+                  },
+                  {
+                        "en": "Let’s find a practical solution.",
+                        "fr": "Trouvons une solution concrète."
+                  },
+                  {
+                        "en": "Thank you for your commitment.",
+                        "fr": "Merci pour votre engagement."
+                  },
+                  {
+                        "en": "We should encourage teamwork.",
+                        "fr": "Nous devrions encourager le travail d’équipe."
+                  },
+                  {
+                        "en": "Let’s avoid micromanagement.",
+                        "fr": "Évitons la micro-gestion."
+                  }
+            ]
+      },
+      "expressions": {
+            "title": "9. Expressions et notions de management",
+            "description": "Des expressions courantes pour comprendre les méthodes et styles de management.",
+            "items": [
+                  {
+                        "en": "bottom-up approach",
+                        "fr": "approche ascendante"
+                  },
+                  {
+                        "en": "top-down approach",
+                        "fr": "approche descendante"
+                  },
+                  {
+                        "en": "C-suite",
+                        "fr": "équipe dirigeante"
+                  },
+                  {
+                        "en": "micromanagement",
+                        "fr": "micro-gestion"
+                  },
+                  {
+                        "en": "pooling",
+                        "fr": "mutualisation / regroupement de ressources"
+                  },
+                  {
+                        "en": "stretch target",
+                        "fr": "objectif ambitieux"
+                  },
+                  {
+                        "en": "activity-based management",
+                        "fr": "management par activité"
+                  },
+                  {
+                        "en": "total quality management",
+                        "fr": "management par la qualité totale"
+                  },
+                  {
+                        "en": "distribution resource planning",
+                        "fr": "planification des ressources de distribution"
+                  },
+                  {
+                        "en": "feature costing",
+                        "fr": "méthode d’analyse des coûts par caractéristiques"
+                  },
+                  {
+                        "en": "decision-making process",
+                        "fr": "processus de prise de décision"
+                  },
+                  {
+                        "en": "continuous improvement",
+                        "fr": "amélioration continue"
+                  }
+            ]
+      }
+};
+    const dialogues = {
+      "team": [
+            {
+                  "speaker": "Manager",
+                  "en": "Good morning, everyone. Let’s review our priorities for the week.",
+                  "fr": "Bonjour à tous. Faisons le point sur nos priorités de la semaine."
+            },
+            {
+                  "speaker": "Employee",
+                  "en": "The main challenge is the backlog in customer requests.",
+                  "fr": "Le principal défi est le retard dans les demandes clients."
+            },
+            {
+                  "speaker": "Manager",
+                  "en": "Thank you. We need to reorganize the workload and delegate tasks clearly.",
+                  "fr": "Merci. Nous devons réorganiser la charge de travail et déléguer les tâches clairement."
+            },
+            {
+                  "speaker": "Employee",
+                  "en": "Could we set a deadline for each action?",
+                  "fr": "Pourrions-nous fixer une échéance pour chaque action ?"
+            },
+            {
+                  "speaker": "Manager",
+                  "en": "Yes. I will send an action plan after the meeting.",
+                  "fr": "Oui. J’enverrai un plan d’action après la réunion."
+            }
+      ],
+      "feedback": [
+            {
+                  "speaker": "Manager",
+                  "en": "Thank you for your work on this project. I appreciate your initiative.",
+                  "fr": "Merci pour votre travail sur ce projet. J’apprécie votre initiative."
+            },
+            {
+                  "speaker": "Employee",
+                  "en": "Thank you. I would also like some feedback on my presentation.",
+                  "fr": "Merci. J’aimerais aussi avoir un retour sur ma présentation."
+            },
+            {
+                  "speaker": "Manager",
+                  "en": "Your structure was clear, but you could add more financial data.",
+                  "fr": "Votre structure était claire, mais vous pourriez ajouter davantage de données financières."
+            },
+            {
+                  "speaker": "Employee",
+                  "en": "That makes sense. I will update the report before Friday.",
+                  "fr": "C’est logique. Je mettrai le rapport à jour avant vendredi."
+            },
+            {
+                  "speaker": "Manager",
+                  "en": "Excellent. Let’s review the progress next week.",
+                  "fr": "Excellent. Faisons le point sur l’avancement la semaine prochaine."
+            }
+      ],
+      "change": [
+            {
+                  "speaker": "Director",
+                  "en": "The company needs to adapt to a difficult economic situation.",
+                  "fr": "L’entreprise doit s’adapter à une situation économique difficile."
+            },
+            {
+                  "speaker": "Manager",
+                  "en": "Do we need a restructuring plan?",
+                  "fr": "Avons-nous besoin d’un plan de restructuration ?"
+            },
+            {
+                  "speaker": "Director",
+                  "en": "We need a practical reorganization plan, but our priority is business continuity.",
+                  "fr": "Nous avons besoin d’un plan de réorganisation concret, mais notre priorité est la continuité d’activité."
+            },
+            {
+                  "speaker": "Manager",
+                  "en": "We should communicate clearly with the workforce.",
+                  "fr": "Nous devrions communiquer clairement avec les salariés."
+            },
+            {
+                  "speaker": "Director",
+                  "en": "Agreed. Change management must be transparent.",
+                  "fr": "D’accord. La conduite du changement doit être transparente."
+            }
+      ]
+};
+    const scenarios = [
+      {
+            "title": "Situation 1 – Déléguer",
+            "prompt": "Vous devez confier une tâche à un collaborateur en lui montrant votre confiance.",
+            "model": "I trust you with this task. Could you take the lead on the customer follow-up?"
+      },
+      {
+            "title": "Situation 2 – Feedback",
+            "prompt": "Vous devez féliciter un collaborateur, puis proposer une amélioration.",
+            "model": "I appreciate your work. To improve the report, you could add more financial data."
+      },
+      {
+            "title": "Situation 3 – Réorganisation",
+            "prompt": "Vous devez expliquer que l’équipe doit réorganiser ses priorités.",
+            "model": "We need to reorganize our priorities and focus on the most urgent deadlines."
+      }
+];
+
+    const allItems = Object.values(categories).flatMap(category => category.items);
+    let currentQuestion = null;
+    let score = 0;
+    let total = 0;
+    let selectedDialogue = "team";
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+    }
+
+    function speak(text, lang){
+      if(!("speechSynthesis" in window)){
+        alert("La synthèse vocale n'est pas disponible dans ce navigateur.");
+        return;
+      }
+      speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = lang === "en-GB" ? 0.86 : 0.94;
+      speechSynthesis.speak(utterance);
+    }
+
+    function stopAudio(){
+      if("speechSynthesis" in window){
+        speechSynthesis.cancel();
+      }
+    }
+
+    function renderSection(key){
+      const category = categories[key];
+      const section = document.getElementById(key);
+      section.innerHTML = `
+        <div class="section-head">
+          <div>
+            <h2>${escapeHtml(category.title)}</h2>
+            <p>${escapeHtml(category.description)}</p>
+          </div>
+          <span class="count">${category.items.length} entrées</span>
+        </div>
+        <table class="vocab-table">
+          <thead>
+            <tr><th>Anglais</th><th>Français</th><th>Audio</th></tr>
+          </thead>
+          <tbody>
+            ${category.items.map(item => `
+              <tr class="vocab-row" data-search="${escapeHtml((item.en + ' ' + item.fr).toLowerCase())}">
+                <td data-label="Anglais"><span class="en">${escapeHtml(item.en)}</span></td>
+                <td data-label="Français"><span class="fr">${escapeHtml(item.fr)}</span></td>
+                <td data-label="Audio">
+                  <div class="audio-cell">
+                    <button class="sound" type="button" data-speak="${escapeHtml(item.en)}" data-lang="en-GB">🔊 EN</button>
+                    <button class="sound frbtn" type="button" data-speak="${escapeHtml(item.fr)}" data-lang="fr-FR">🔊 FR</button>
+                  </div>
+                </td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      `;
+    }
+
+    function renderAllSections(){
+      Object.keys(categories).forEach(renderSection);
+    }
+
+    function selectDialogue(key){
+      selectedDialogue = key;
+      const titles = {
+        team: "Dialogue : réunion d’équipe",
+        feedback: "Dialogue : feedback professionnel",
+        change: "Dialogue : conduite du changement"
+      };
+      const lines = dialogues[key];
+      document.getElementById("dialogue-title").textContent = titles[key];
+      document.getElementById("dialogue-list").innerHTML = lines.map(line => `
+        <div class="line">
+          <div class="speaker">${escapeHtml(line.speaker)}</div>
+          <div class="line-text">
+            <strong>${escapeHtml(line.en)}</strong>
+            <span>${escapeHtml(line.fr)}</span>
+          </div>
+          <div class="audio-cell">
+            <button class="sound" data-speak="${escapeHtml(line.en)}" data-lang="en-GB">🔊 EN</button>
+            <button class="sound frbtn" data-speak="${escapeHtml(line.fr)}" data-lang="fr-FR">🔊 FR</button>
+          </div>
+        </div>
+      `).join("");
+
+      document.getElementById("play-dialogue-en").onclick = () => {
+        speak(lines.map(line => line.en).join(" "), "en-GB");
+      };
+      document.getElementById("play-dialogue-fr").onclick = () => {
+        speak(lines.map(line => line.fr).join(" "), "fr-FR");
+      };
+    }
+
+    function renderScenarios(){
+      document.getElementById("scenario-list").innerHTML = scenarios.map(scenario => `
+        <div class="scenario">
+          <h3>${escapeHtml(scenario.title)}</h3>
+          <p>${escapeHtml(scenario.prompt)}</p>
+          <button class="sound" data-speak="${escapeHtml(scenario.model)}" data-lang="en-GB">🔊 Modèle EN</button>
+          <div class="small-note"><strong>Modèle :</strong> ${escapeHtml(scenario.model)}</div>
+        </div>
+      `).join("");
+    }
+
+    function resetSearch(){
+      document.getElementById("search").value = "";
+      filterRows("");
+    }
+
+    function filterRows(query){
+      const q = query.trim().toLowerCase();
+      document.querySelectorAll(".vocab-row").forEach(row => {
+        const haystack = row.dataset.search || "";
+        row.classList.toggle("hidden", q && !haystack.includes(q));
+      });
+    }
+
+    function shuffle(array){
+      return [...array].sort(() => Math.random() - 0.5);
+    }
+
+    function newQuestion(){
+      const item = allItems[Math.floor(Math.random() * allItems.length)];
+      currentQuestion = item;
+      document.getElementById("quiz-question").innerHTML =
+        `<strong style="font-size:1.15rem">${escapeHtml(item.en)}</strong><br>
+         <span style="color:#667085;font-size:.9rem">Quelle est la bonne traduction ?</span>`;
+
+      const wrongAnswers = shuffle(allItems.filter(x => x.fr !== item.fr)).slice(0,3);
+      const options = shuffle([item, ...wrongAnswers]);
+
+      document.getElementById("answers").innerHTML = options.map(option => `
+        <button class="answer" data-answer="${escapeHtml(option.fr)}">
+          ${escapeHtml(option.fr)}
+        </button>
+      `).join("");
+
+      document.querySelectorAll(".answer").forEach(button => {
+        button.addEventListener("click", () => checkAnswer(button, button.dataset.answer));
+      });
+
+      document.getElementById("quiz-result").textContent = `Score : ${score} / ${total}`;
+      document.getElementById("listen-question").onclick = () => speak(item.en, "en-GB");
+    }
+
+    function checkAnswer(button, selectedFr){
+      if(!currentQuestion) return;
+
+      const buttons = document.querySelectorAll(".answer");
+      buttons.forEach(btn => btn.disabled = true);
+
+      total++;
+      if(selectedFr === currentQuestion.fr){
+        score++;
+        button.classList.add("correct");
+        document.getElementById("quiz-result").textContent =
+          `Bonne réponse ✅ Score : ${score} / ${total}`;
+      } else {
+        button.classList.add("wrong");
+        buttons.forEach(btn => {
+          if(btn.textContent.trim() === currentQuestion.fr){
+            btn.classList.add("correct");
+          }
+        });
+        document.getElementById("quiz-result").textContent =
+          `Réponse attendue : ${currentQuestion.fr}. Score : ${score} / ${total}`;
+      }
+    }
+
+    function resetQuiz(){
+      score = 0;
+      total = 0;
+      currentQuestion = null;
+      document.getElementById("quiz-question").textContent = "Cliquez sur “Nouvelle question”.";
+      document.getElementById("answers").innerHTML = "";
+      document.getElementById("quiz-result").textContent = "Score remis à zéro.";
+      document.getElementById("listen-question").onclick = () => {};
+    }
+
+    function renderFlashcards(){
+      const cards = shuffle(allItems).slice(0,12);
+      document.getElementById("flash-list").innerHTML = cards.map(item => `
+        <div class="flashcard">
+          <div class="flash-inner">
+            <div class="flash-front">
+              <strong>${escapeHtml(item.en)}</strong>
+              <button class="sound" type="button" data-speak="${escapeHtml(item.en)}" data-lang="en-GB">🔊 Écouter</button>
+            </div>
+            <div class="flash-back">
+              <strong>${escapeHtml(item.fr)}</strong>
+              <button class="sound frbtn" type="button" data-speak="${escapeHtml(item.fr)}" data-lang="fr-FR">🔊 Écouter</button>
+            </div>
+          </div>
+        </div>
+      `).join("");
+
+      document.querySelectorAll(".flashcard").forEach(card => {
+        card.addEventListener("click", event => {
+          if(event.target.closest("button")) return;
+          card.classList.toggle("flipped");
+        });
+      });
+    }
+
+    function buildSentence(){
+      const intent = document.getElementById("bIntent").value;
+      const topic = document.getElementById("bTopic").value.trim() || "this task";
+      const extra = document.getElementById("bExtra").value.trim();
+
+      const templates = {
+        delegate: {
+          en: `Could you take the lead on ${topic}`,
+          fr: `Pourriez-vous prendre la responsabilité de ${topic}`
+        },
+        feedback: {
+          en: `I appreciate your work on ${topic}`,
+          fr: `J’apprécie votre travail sur ${topic}`
+        },
+        priority: {
+          en: `We need to prioritize ${topic}`,
+          fr: `Nous devons prioriser ${topic}`
+        },
+        progress: {
+          en: `Let’s review the progress on ${topic}`,
+          fr: `Faisons le point sur l’avancement de ${topic}`
+        },
+        change: {
+          en: `We need to adapt our approach to ${topic}`,
+          fr: `Nous devons adapter notre approche concernant ${topic}`
+        }
+      };
+
+      let en = templates[intent].en;
+      let fr = templates[intent].fr;
+      if(extra){
+        en += ` ${extra}`;
+        fr += ` ${extra}`;
+      }
+      if(!en.endsWith(".") && !en.endsWith("?")) en += ".";
+      if(!fr.endsWith(".") && !fr.endsWith("?")) fr += ".";
+
+      const output = `EN: ${en}\n\nFR: ${fr}`;
+      document.getElementById("built-sentence").textContent = output;
+      document.getElementById("copy-note").textContent = "";
+      return en;
+    }
+
+    function speakBuiltSentence(){
+      const sentenceText = buildSentence();
+      speak(sentenceText, "en-GB");
+    }
+
+    async function copyBuiltSentence(){
+      const sentence = document.getElementById("built-sentence").textContent.trim() || buildSentence();
+      try{
+        await navigator.clipboard.writeText(sentence);
+        document.getElementById("copy-note").textContent = "Phrase copiée dans le presse-papiers ✅";
+      }catch(error){
+        document.getElementById("copy-note").textContent = "Copie automatique impossible : sélectionnez le texte manuellement.";
+      }
+    }
+
+    document.addEventListener("click", event => {
+      const speakButton = event.target.closest("[data-speak]");
+      if(speakButton){
+        event.stopPropagation();
+        speak(speakButton.dataset.speak, speakButton.dataset.lang || "en-GB");
+      }
+
+      const dialogueButton = event.target.closest("[data-dialogue]");
+      if(dialogueButton){
+        selectDialogue(dialogueButton.dataset.dialogue);
+      }
+    });
+
+    document.getElementById("search").addEventListener("input", e => filterRows(e.target.value));
+
+    renderAllSections();
+    renderScenarios();
+    renderFlashcards();
+    selectDialogue("team");
+    buildSentence();
+    newQuestion();
+  </script>
+</body>
+</html>
